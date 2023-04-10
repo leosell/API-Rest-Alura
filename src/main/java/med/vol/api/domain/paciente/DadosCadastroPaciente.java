@@ -1,4 +1,4 @@
-package med.vol.api.paciente;
+package med.vol.api.domain.paciente;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
@@ -9,21 +9,21 @@ import med.vol.api.endereco.DadosEndereco;
 
 public record DadosCadastroPaciente(
 		
-		@NotBlank
+		@NotBlank(message = "{nome.obrigatorio}")
 		String nome,
 		
-		@NotBlank
-		@Email
+		@NotBlank(message = "{email.obrigatorio}")
+		@Email(message = "{email.invalido}")
 		String email,
 		
-		@NotBlank
+		@NotBlank(message = "{telefone.obrigatorio}")
 		String telefone,
 		
-		@NotBlank
+		@NotBlank(message = "{cpf.obrigatorio}")
 		@Pattern(regexp = "\\d{3}\\.?\\d{3}\\.?\\d{3}\\-?\\d{2}")
 		String cpf,
 		
-		@NotNull
+		@NotNull(message = "{endereco.obrigatorio}")
 		@Valid
 		DadosEndereco endereco
 		

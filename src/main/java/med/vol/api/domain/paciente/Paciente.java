@@ -1,4 +1,4 @@
-package med.vol.api.paciente;
+package med.vol.api.domain.paciente;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
